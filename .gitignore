@@ -1,0 +1,19 @@
+# Internal client material: never public
+LCG_BOSTON_LLC_Brief.md
+*Brief*.md
+photo-curation/
+
+# Build output (regenerate the upload zip when needed)
+deploy/
+
+# Unused stock photos (the site uses assets/img/curated)
+assets/img/stock/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+node_modules/
+*.log

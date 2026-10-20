@@ -1,0 +1,6 @@
+# TEST ONLY (lcg.escolats.com.br): keep this environment out of search engines.
+# Production: replace with
+#   User-agent: *
+#   Allow: /
+User-agent: *
+Disallow: /

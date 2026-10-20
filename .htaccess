@@ -1,0 +1,85 @@
+# =========================================================
+#  LCG Boston, TEST environment: https://lcg.escolats.com.br
+#  Static one page (index.html + assets/). Apache 2.4.
+#
+#  Going to production? Remove the "TEST ONLY" header below
+#  and replace robots.txt (also marked TEST ONLY).
+# =========================================================
+
+Options -Indexes -MultiViews
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+AddDefaultCharset utf-8
+
+# ---------- Rewrites ----------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Force HTTPS (also works behind proxies / Cloudflare)
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Drop "www." if anyone types it
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+  # /index.html -> / (one URL for the home page)
+  RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+  RewriteRule ^index\.html$ / [L,R=301]
+
+  # Block hidden files (.git, .env ...) but keep /.well-known for SSL validation
+  RewriteRule (^|/)\.(?!well-known/) - [F]
+
+  # Block working / source files that should never be public
+  RewriteRule \.(md|tsv|cjs|json|log|bak|sql|zip|psd|ai)$ - [F,NC]
+</IfModule>
+
+# ---------- MIME types ----------
+<IfModule mod_mime.c>
+  AddType text/javascript .js .mjs
+  AddType text/css .css
+  AddType image/webp .webp
+  AddType image/svg+xml .svg
+  AddType image/x-icon .ico
+  AddCharset utf-8 .html .css .js .txt
+</IfModule>
+
+# ---------- Compression ----------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>
+
+# ---------- Caching ----------
+# HTML, CSS and JS are revalidated on every visit (cheap 304s), so test
+# updates show up right away. Images and fonts are cached for 30 days.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 0 seconds"
+  ExpiresByType image/webp "access plus 30 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType image/x-icon "access plus 30 days"
+  ExpiresByType font/woff2 "access plus 30 days"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|css|js|mjs)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  <FilesMatch "\.(webp|jpe?g|png|svg|ico|woff2)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+
+  # ---------- Security ----------
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+  # Short HSTS on the test domain; raise to max-age=31536000 in production
+  Header always set Strict-Transport-Security "max-age=86400" env=HTTPS
+
+  # ---------- TEST ONLY: keep this environment out of Google ----------
+  Header always set X-Robots-Tag "noindex, nofollow, noarchive"
+</IfModule>

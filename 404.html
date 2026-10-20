@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page Not Found | LCG Boston</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#111315">
+  <link rel="icon" type="image/webp" href="/assets/img/brand/ICONE@3x.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,600..800&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink: #0F1113; --text: #ECEAE6; --text-2: #B4B2AD; --line-2: rgba(236,234,230,.18); --tan: #C0976F; --tan-hi: #D3AD87; --on-tan: #14110E; }
+    * { box-sizing: border-box; margin: 0; }
+    html, body { height: 100%; }
+    body {
+      background: var(--ink); color: var(--text); font: 400 17px/1.6 "Figtree", Arial, sans-serif;
+      display: grid; place-items: center; padding: 24px; text-align: center; overflow: hidden; position: relative;
+    }
+    .mark { position: absolute; left: 0; bottom: 0; width: clamp(200px, 28vw, 440px); fill: none; stroke: #8B8A86; stroke-width: 107; opacity: .07; pointer-events: none; }
+    main { position: relative; max-width: 560px; display: grid; justify-items: center; gap: 22px; }
+    .logo { height: 44px; width: auto; margin-bottom: 18px; }
+    .code { font-family: "Archivo", Arial, sans-serif; font-weight: 800; font-stretch: 115%; font-size: clamp(4rem, 14vw, 7rem); line-height: .9; color: var(--tan); letter-spacing: -.02em; }
+    h1 { font-family: "Archivo", Arial, sans-serif; font-weight: 800; font-stretch: 112%; font-size: clamp(1.6rem, 4vw, 2.3rem); line-height: 1.05; }
+    p { color: var(--text-2); }
+    .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 10px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 26px;
+      font-family: "Archivo", Arial, sans-serif; font-weight: 700; font-stretch: 118%; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase;
+      text-decoration: none; border-radius: 2px; transition: background-color .3s, border-color .3s, color .3s;
+    }
+    .actions .btn { min-width: 220px; }
+    .btn--primary { background: var(--tan); color: var(--on-tan); }
+    .btn--primary:hover { background: var(--tan-hi); }
+    .btn--ghost { border: 1.5px solid var(--line-2); color: var(--text); }
+    .btn--ghost:hover { border-color: var(--tan); color: var(--tan-hi); }
+    a:focus-visible { outline: 2px solid var(--tan); outline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <svg class="mark" viewBox="0 0 893 934" aria-hidden="true">
+    <path d="M53 0V878H893"/><path d="M893 55H211V722H893"/><path d="M893 212H368V566H840V388H500"/>
+  </svg>
+  <main>
+    <a href="/" aria-label="LCG Boston home"><img class="logo" src="/assets/img/brand/LOGO@3x.webp" alt="LCG Boston"></a>
+    <span class="code" aria-hidden="true">404</span>
+    <h1>Page Not Found</h1>
+    <p>The page you are looking for has moved or no longer exists. Let us get you back on track.</p>
+    <div class="actions">
+      <a class="btn btn--primary" href="/">Back to Home</a>
+      <a class="btn btn--ghost" href="tel:+17817321899">(781) 732-1899</a>
+    </div>
+  </main>
+</body>
+</html>
