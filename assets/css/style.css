@@ -243,7 +243,7 @@ h1, h2, h3, p, figure, blockquote, dl, dd { margin: 0; }
 .hero__content { position: relative; display: flex; flex-direction: column; align-items: center; }
 .hero__title {
   font-family: var(--f-display); font-weight: 800; font-stretch: 110%;
-  font-size: clamp(2.1rem, 4.5vw, 4.2rem); line-height: 1; letter-spacing: -0.01em;
+  font-size: clamp(1.95rem, 4.15vw, 3.9rem); line-height: 1; letter-spacing: -0.01em;
   text-transform: uppercase; max-width: 19ch; text-wrap: balance;
 }
 .hero__sub { margin-top: 26px; max-width: 52ch; font-size: clamp(1.02rem, 1.3vw, 1.18rem); color: var(--text-2); }
@@ -767,7 +767,7 @@ h1, h2, h3, p, figure, blockquote, dl, dd { margin: 0; }
   .nav__logo img { height: 32px; }
   .nav__actions .btn { display: none; }
   .nav__phone { width: 44px; height: 44px; justify-content: center; border: 1px solid var(--line-2); }
-  .hero__title { font-size: clamp(1.9rem, 8.6vw, 2.5rem); }
+  .hero__title { font-size: clamp(1.75rem, 8vw, 2.3rem); }
   .hero__mark { width: 36vw; opacity: 0.14; }
   .hero__ctas .btn { width: 100%; }
   .creds__list li { padding: 20px 26px; gap: 12px; }
