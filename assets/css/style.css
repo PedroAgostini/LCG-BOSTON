@@ -279,7 +279,7 @@ h1, h2, h3, p, figure, blockquote, dl, dd { margin: 0; }
 .about__media { display: grid; }
 .about__img { overflow: hidden; border-radius: var(--r); }
 .about__img img { width: 100%; height: auto; }
-.about__img--a { justify-self: end; width: 62%; }
+.about__img--a { justify-self: end; width: 62%; margin-inline-end: 12%; }
 
 /* ---------- 3D Build ---------- */
 .build { position: relative; background: var(--ink-2); }
