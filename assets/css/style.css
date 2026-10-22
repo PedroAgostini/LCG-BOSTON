@@ -275,11 +275,12 @@ h1, h2, h3, p, figure, blockquote, dl, dd { margin: 0; }
 .about__cta { margin-top: 38px; }
 .about__text .h2 { white-space: nowrap; font-size: clamp(1.4rem, min(7.4vw, 3.5vw + 1rem), 3.3rem); }
 
-.about__media { position: relative; aspect-ratio: 0.92; }
-.about__img { position: absolute; overflow: hidden; border-radius: var(--r); }
-.about__img img { width: 100%; height: 100%; object-fit: cover; }
-.about__img--a { inset: 0 0 auto 32%; aspect-ratio: 2 / 3; }
-.about__img--b { left: 0; bottom: 0; width: 78%; aspect-ratio: 3 / 2; border: 6px solid var(--ink); }
+/* Keep both photos complete, with staggered alignment and no overlap. */
+.about__media { display: grid; gap: clamp(16px, 2vw, 24px); }
+.about__img { overflow: hidden; border-radius: var(--r); }
+.about__img img { width: 100%; height: auto; }
+.about__img--a { justify-self: end; width: 62%; }
+.about__img--b { justify-self: start; width: 70%; }
 
 /* ---------- 3D Build ---------- */
 .build { position: relative; background: var(--ink-2); }
