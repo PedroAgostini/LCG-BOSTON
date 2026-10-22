@@ -275,12 +275,12 @@ h1, h2, h3, p, figure, blockquote, dl, dd { margin: 0; }
 .about__cta { margin-top: 38px; }
 .about__text .h2 { white-space: nowrap; font-size: clamp(1.4rem, min(7.4vw, 3.5vw + 1rem), 3.3rem); }
 
-/* Keep both photos complete, with staggered alignment and no overlap. */
-.about__media { display: grid; gap: clamp(16px, 2vw, 24px); }
+/* Overlap only the lower portrait area, keeping both faces unobstructed. */
+.about__media { display: grid; }
 .about__img { overflow: hidden; border-radius: var(--r); }
 .about__img img { width: 100%; height: auto; }
 .about__img--a { justify-self: end; width: 62%; }
-.about__img--b { justify-self: start; width: 70%; }
+.about__img--b { position: relative; z-index: 1; justify-self: start; width: 70%; margin-block-start: -32%; border: 6px solid var(--ink); }
 
 /* ---------- 3D Build ---------- */
 .build { position: relative; background: var(--ink-2); }
@@ -758,6 +758,7 @@ h1, h2, h3, p, figure, blockquote, dl, dd { margin: 0; }
   .steps__line { display: none; }
 }
 @media (max-width: 720px) {
+  .about__img--b { margin-block-start: -22%; border-width: 4px; }
   .choices { grid-template-columns: 1fr 1fr; gap: 8px; }
   .choice span { min-height: 56px; padding: 12px 14px; gap: 10px; font-size: 0.92rem; }
   .form__nav .btn { flex: 1; }
