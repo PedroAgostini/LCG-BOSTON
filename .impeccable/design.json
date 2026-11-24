@@ -1,0 +1,458 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-24T00:00:00Z",
+  "title": "Design System: LCG Boston",
+  "extensions": {
+    "sources": {
+      "landingWorld": "assets/css/lp.css",
+      "mainSiteWorld": "assets/css/style.css (dark graphite; only shared constants recorded)",
+      "firstSurface": "bathroom-remodeling/index.html",
+      "surfaces": [
+        "bathroom-remodeling/index.html",
+        "kitchen-remodeling/index.html",
+        "kitchen-bathroom-remodeling/index.html",
+        "kitchen-bathroom-remodeling/thank-you.html"
+      ]
+    },
+    "colorMeta": {
+      "bronze": {
+        "role": "primary",
+        "displayName": "LCG Bronze",
+        "canonical": "#C0976F",
+        "tonalRamp": [
+          "#2E2116",
+          "#4A3524",
+          "#674B34",
+          "#7A5636",
+          "#AE8660",
+          "#C0976F",
+          "#D3AD87",
+          "#EBD9C6"
+        ]
+      },
+      "bronze-hi": {
+        "role": "primary",
+        "displayName": "Polished Bronze",
+        "canonical": "#D3AD87"
+      },
+      "bronze-press": {
+        "role": "primary",
+        "displayName": "Pressed Bronze",
+        "canonical": "#AE8660"
+      },
+      "bronze-text": {
+        "role": "primary",
+        "displayName": "Bronze Text",
+        "canonical": "#7A5636"
+      },
+      "on-bronze": {
+        "role": "primary",
+        "displayName": "On Bronze",
+        "canonical": "#14110E"
+      },
+      "stone": {
+        "role": "neutral",
+        "displayName": "Honed Stone",
+        "canonical": "#EEEBE6",
+        "tonalRamp": [
+          "#2B2926",
+          "#47443F",
+          "#67635D",
+          "#8C8780",
+          "#B3AEA6",
+          "#D4CFC7",
+          "#E5E1DA",
+          "#EEEBE6"
+        ]
+      },
+      "stone-2": {
+        "role": "neutral",
+        "displayName": "Shaded Stone",
+        "canonical": "#E5E1DA"
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#F9F8F6"
+      },
+      "field-white": {
+        "role": "neutral",
+        "displayName": "Field White",
+        "canonical": "#FFFFFF"
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Graphite Ink",
+        "canonical": "#15181B"
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Ink 2",
+        "canonical": "#3B4045"
+      },
+      "ink-3": {
+        "role": "neutral",
+        "displayName": "Ink 3",
+        "canonical": "#5C6166"
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule",
+        "canonical": "rgba(21, 24, 27, 0.14)"
+      },
+      "rule-2": {
+        "role": "neutral",
+        "displayName": "Rule 2",
+        "canonical": "rgba(21, 24, 27, 0.28)"
+      },
+      "graphite": {
+        "role": "neutral",
+        "displayName": "Graphite",
+        "canonical": "#15181B",
+        "tonalRamp": [
+          "#0F1113",
+          "#15181B",
+          "#1D2125",
+          "#272C31",
+          "#3B4045",
+          "#5C6166",
+          "#8B8A86",
+          "#B4B2AD"
+        ]
+      },
+      "graphite-2": {
+        "role": "neutral",
+        "displayName": "Graphite 2",
+        "canonical": "#1D2125"
+      },
+      "graphite-3": {
+        "role": "neutral",
+        "displayName": "Deep Graphite",
+        "canonical": "#0F1113"
+      },
+      "on-dark": {
+        "role": "neutral",
+        "displayName": "On Dark",
+        "canonical": "#ECEAE6"
+      },
+      "on-dark-2": {
+        "role": "neutral",
+        "displayName": "On Dark 2",
+        "canonical": "#B4B2AD"
+      },
+      "rule-dark": {
+        "role": "neutral",
+        "displayName": "Rule Dark",
+        "canonical": "rgba(236, 234, 230, 0.14)"
+      },
+      "danger": {
+        "role": "feedback",
+        "displayName": "Brick",
+        "canonical": "#A3392B"
+      },
+      "danger-on-dark": {
+        "role": "feedback",
+        "displayName": "Coral",
+        "canonical": "#F08A7A"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero H1 only. Archivo 800, 112% width, uppercase, balanced; fitted to three lines from 1280px."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section H2s (except the FAQ title) and the thanks title. Archivo 800, 112% width, uppercase. Service titles, panel titles and the Larger-Scope title use the same voice at smaller sizes."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "H3s for scope rows, pillars, steps and Larger-Scope rows; FAQ questions. Archivo 700, 106% width, sentence case."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All reading copy. Figtree 400, 17px (16.5px under 760px), leads capped at 58ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Button text and functional labels. Archivo 700, 116% width, uppercase, tracked 0.1em to 0.2em."
+      },
+      "faq-title": {
+        "displayName": "FAQ Title",
+        "purpose": "The one section H2 in title case: Archivo 800, 112% width, clamp(2.3rem, 4.7vw, 4.1rem), line height 1; may be held on one line (phones min(2.3rem, 8.2vw))."
+      }
+    },
+    "shadows": [
+      {
+        "name": "field-focus-ring",
+        "value": "0 0 0 1px #15181B",
+        "purpose": "Thickens the ink border of a focused input. The only shadow in the landing world."
+      },
+      {
+        "name": "field-error-ring",
+        "value": "0 0 0 1px #A3392B",
+        "purpose": "Thickens the border of an input in error."
+      }
+    ],
+    "frames": [
+      {
+        "name": "brass-frame",
+        "value": "inset clamp(10px, 1.4vw, 18px); border: 1px solid rgba(211, 173, 135, 0.85)",
+        "purpose": "Inset brass profile on hero and feature photos."
+      },
+      {
+        "name": "brass-frame-quiet",
+        "value": "border-color: rgba(211, 173, 135, 0.6)",
+        "purpose": "Lower-opacity frame for secondary photos."
+      },
+      {
+        "name": "brass-frame-hover",
+        "value": "inset 10px; border: 1px solid rgba(211, 173, 135, 0.9); fades in from scale(1.03)",
+        "purpose": "Gallery tile hover and focus."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "House ease for every transition (shared with the main site)."
+      },
+      {
+        "name": "control",
+        "value": "0.2s to 0.25s",
+        "purpose": "Button, field and option color and border changes."
+      },
+      {
+        "name": "frame-draw",
+        "value": "clip-path 1.6s, 0.35s delay",
+        "purpose": "Hero brass frame draws once on load."
+      },
+      {
+        "name": "photo-settle",
+        "value": "transform scale(1.04) to none, 2.2s",
+        "purpose": "Hero photo settles on load."
+      },
+      {
+        "name": "gallery-zoom",
+        "value": "transform scale(1.05), 0.9s",
+        "purpose": "Gallery photo hover."
+      },
+      {
+        "name": "gallery-loop",
+        "value": "translateX loop, 72s (row 1) and 64s reversed (row 2), linear",
+        "purpose": "Looping gallery rows; paused on hover or focus, stopped under reduced motion."
+      },
+      {
+        "name": "chooser-hover",
+        "value": "background and color 0.3s, arrow translateX(3px) 0.35s",
+        "purpose": "Room chooser tile inverts to graphite."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "transitions 0.01ms; load animations skipped",
+        "purpose": "Honors prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "trust-wrap",
+        "value": "max-width: 1359px"
+      },
+      {
+        "name": "hero-fit",
+        "value": "min-width: 1280px"
+      },
+      {
+        "name": "narrow-desktop",
+        "value": "900px to 1279px"
+      },
+      {
+        "name": "laptop",
+        "value": "max-width: 1180px"
+      },
+      {
+        "name": "tablet",
+        "value": "max-width: 1023px"
+      },
+      {
+        "name": "stack",
+        "value": "max-width: 899px"
+      },
+      {
+        "name": "mobile",
+        "value": "max-width: 759px"
+      },
+      {
+        "name": "small",
+        "value": "max-width: 380px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one solid bronze surface: estimate actions everywhere.",
+      "html": "<button class=\"ds-btn-primary\">Request My Free Estimate <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"square\" stroke-linejoin=\"miter\" aria-hidden=\"true\"><path d=\"M4 12h16M13 5l7 7-7 7\"/></svg></button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 54px; padding: 0 26px; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-stretch: 116%; font-size: 0.86rem; letter-spacing: 0.1em; text-transform: uppercase; background: #C0976F; color: #14110E; border: 1px solid #AE8660; border-radius: 2px; cursor: pointer; transition: background-color .25s cubic-bezier(0.16,1,0.3,1), transform .25s cubic-bezier(0.16,1,0.3,1); } .ds-btn-primary svg { transition: transform .35s cubic-bezier(0.16,1,0.3,1); } .ds-btn-primary:hover { background: #D3AD87; } .ds-btn-primary:hover svg { transform: translateX(3px); } .ds-btn-primary:active { background: #AE8660; transform: translateY(1px); } .ds-btn-primary:focus-visible { outline: 2px solid #15181B; outline-offset: 3px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary action on light surfaces, such as the form's Back step.",
+      "html": "<button class=\"ds-btn-ghost\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"square\" aria-hidden=\"true\"><path d=\"M20 12H4M11 5l-7 7 7 7\"/></svg> Back</button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 12px; min-height: 54px; padding: 0 26px; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-stretch: 116%; font-size: 0.86rem; letter-spacing: 0.1em; text-transform: uppercase; background: transparent; color: #15181B; border: 1px solid rgba(21,24,27,0.28); border-radius: 2px; cursor: pointer; transition: border-color .25s cubic-bezier(0.16,1,0.3,1); } .ds-btn-ghost svg { transition: transform .35s cubic-bezier(0.16,1,0.3,1); } .ds-btn-ghost:hover { border-color: #15181B; } .ds-btn-ghost:hover svg { transform: translateX(-3px); } .ds-btn-ghost:focus-visible { outline: 2px solid #15181B; outline-offset: 3px; }"
+    },
+    {
+      "name": "Call Link",
+      "kind": "custom",
+      "description": "The quieter alternative paired with every primary action.",
+      "html": "<a class=\"ds-call\" href=\"#\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"square\" aria-hidden=\"true\"><path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z\"/></svg>Call (781) 732-1899</a>",
+      "css": ".ds-call { display: inline-flex; align-items: center; gap: 10px; font-family: Figtree, 'Helvetica Neue', Arial, sans-serif; font-weight: 600; color: #15181B; text-decoration: none; border-bottom: 1px solid #C0976F; padding-bottom: 2px; transition: border-color .25s cubic-bezier(0.16,1,0.3,1); } .ds-call svg { color: #7A5636; } .ds-call:hover { border-color: #15181B; } .ds-call:focus-visible { outline: 2px solid #15181B; outline-offset: 3px; }"
+    },
+    {
+      "name": "ZIP-start",
+      "kind": "input",
+      "refersTo": "zip-start-input",
+      "description": "Hero entry: ZIP field joined edge to edge with the primary button inside one ink outline.",
+      "html": "<div class=\"ds-zip\"><label class=\"ds-zip__label\" for=\"ds-zip\">Project ZIP Code</label><div class=\"ds-zip__row\"><input id=\"ds-zip\" inputmode=\"numeric\" placeholder=\"e.g. 02108\"><button class=\"ds-zip__btn\">Request My Free Estimate</button></div></div>",
+      "css": ".ds-zip { max-width: 560px; } .ds-zip__label { display: block; margin-bottom: 10px; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-stretch: 112%; font-size: 0.76rem; letter-spacing: 0.14em; text-transform: uppercase; color: #15181B; } .ds-zip__row { display: flex; border: 1px solid #15181B; background: #F9F8F6; } .ds-zip__row:focus-within { outline: 2px solid #15181B; outline-offset: 3px; } .ds-zip__row input { flex: 1; min-width: 0; height: 60px; padding: 0 18px; border: 0; background: transparent; color: #15181B; font: 600 1.15rem/1 Figtree, 'Helvetica Neue', Arial, sans-serif; letter-spacing: 0.08em; font-variant-numeric: tabular-nums; } .ds-zip__row input:focus { outline: none; } .ds-zip__row input::placeholder { color: #5C6166; font-weight: 400; letter-spacing: 0.02em; } .ds-zip__btn { min-height: 60px; padding: 0 26px; border: 0; border-left: 1px solid #15181B; background: #C0976F; color: #14110E; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-stretch: 116%; font-size: 0.86rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; white-space: nowrap; transition: background-color .25s cubic-bezier(0.16,1,0.3,1); } .ds-zip__btn:hover { background: #D3AD87; }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input-text",
+      "description": "Estimate form input on the paper panel.",
+      "html": "<div class=\"ds-field\"><label for=\"ds-name\">Full name</label><input id=\"ds-name\" type=\"text\"></div>",
+      "css": ".ds-field { font-family: Figtree, 'Helvetica Neue', Arial, sans-serif; color: #15181B; } .ds-field label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.96rem; } .ds-field input { width: 100%; min-height: 52px; padding: 13px 14px; background: #FFFFFF; color: #15181B; border: 1px solid rgba(21,24,27,0.28); border-radius: 2px; font: 400 1rem/1.4 Figtree, 'Helvetica Neue', Arial, sans-serif; transition: border-color .2s cubic-bezier(0.16,1,0.3,1), box-shadow .2s cubic-bezier(0.16,1,0.3,1); } .ds-field input:hover { border-color: #5C6166; } .ds-field input:focus { outline: none; border-color: #15181B; box-shadow: 0 0 0 1px #15181B; }"
+    },
+    {
+      "name": "Option Tiles",
+      "kind": "chip",
+      "refersTo": "option-tile",
+      "description": "Radio group as square tiles; the selected tile inverts to graphite.",
+      "html": "<div class=\"ds-opts\"><label class=\"ds-opt\"><input type=\"radio\" name=\"ds-c\" checked><span>Call</span></label><label class=\"ds-opt\"><input type=\"radio\" name=\"ds-c\"><span>Text</span></label><label class=\"ds-opt\"><input type=\"radio\" name=\"ds-c\"><span>Email</span></label></div>",
+      "css": ".ds-opts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; font-family: Figtree, 'Helvetica Neue', Arial, sans-serif; } .ds-opt { position: relative; display: block; } .ds-opt input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; } .ds-opt span { display: flex; align-items: center; justify-content: center; min-height: 48px; padding: 8px 10px; background: #FFFFFF; color: #15181B; border: 1px solid rgba(21,24,27,0.28); border-radius: 2px; font-weight: 500; font-size: 0.94rem; transition: border-color .2s, background-color .2s, color .2s; } .ds-opt:hover span { border-color: #5C6166; } .ds-opt input:checked + span { background: #15181B; border-color: #15181B; color: #ECEAE6; font-weight: 600; } .ds-opt input:focus-visible + span { outline: 2px solid #15181B; outline-offset: 2px; }"
+    },
+    {
+      "name": "Header",
+      "kind": "nav",
+      "refersTo": "header",
+      "description": "Graphite sticky header: logo, context line, phone, small primary action.",
+      "html": "<header class=\"ds-hd\"><span class=\"ds-hd__logo\">LCG</span><p class=\"ds-hd__ctx\">Bathroom Remodeling <span>|</span> Greater Boston</p><div class=\"ds-hd__act\"><a class=\"ds-hd__phone\" href=\"#\">(781) 732-1899</a><a class=\"ds-hd__cta\" href=\"#\">Request a Free Estimate</a></div></header>",
+      "css": ".ds-hd { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 24px; height: 72px; padding: 0 24px; background: #15181B; color: #ECEAE6; border-bottom: 1px solid rgba(236,234,230,0.14); } .ds-hd__logo { font-family: Archivo, sans-serif; font-weight: 800; font-stretch: 112%; color: #C0976F; font-size: 1.4rem; } .ds-hd__ctx { justify-self: center; margin: 0; font-family: Archivo, sans-serif; font-weight: 600; font-stretch: 120%; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: #B4B2AD; } .ds-hd__ctx span { color: #C0976F; margin-inline: 10px; } .ds-hd__act { display: flex; align-items: center; gap: 22px; } .ds-hd__phone { color: #ECEAE6; text-decoration: none; font-family: Figtree, sans-serif; font-weight: 600; font-variant-numeric: tabular-nums; } .ds-hd__phone:hover { text-decoration: underline; text-decoration-color: #C0976F; text-underline-offset: 5px; } .ds-hd__cta { display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; background: #C0976F; color: #14110E; border: 1px solid #AE8660; border-radius: 2px; text-decoration: none; font-family: Archivo, sans-serif; font-weight: 700; font-stretch: 116%; font-size: 0.76rem; letter-spacing: 0.1em; text-transform: uppercase; } .ds-hd__cta:hover { background: #D3AD87; } .ds-hd a:focus-visible { outline: 2px solid #D3AD87; outline-offset: 3px; }"
+    },
+    {
+      "name": "Brass Frame",
+      "kind": "card",
+      "description": "Signature: a 1px Polished Bronze profile inset into a photo.",
+      "html": "<figure class=\"ds-frame\"><div class=\"ds-frame__img\"></div></figure>",
+      "css": ".ds-frame { position: relative; margin: 0; width: 240px; aspect-ratio: 2 / 3; isolation: isolate; overflow: hidden; } .ds-frame__img { width: 100%; height: 100%; background: linear-gradient(160deg, #E5E1DA, #B3AEA6); transition: transform .9s cubic-bezier(0.16,1,0.3,1); } .ds-frame::after { content: ''; position: absolute; inset: 14px; border: 1px solid rgba(211,173,135,0.85); pointer-events: none; } .ds-frame:hover .ds-frame__img { transform: scale(1.035); }"
+    },
+    {
+      "name": "Scope Row",
+      "kind": "custom",
+      "description": "Ruled list row led by a square bronze marker that fills on hover.",
+      "html": "<ul class=\"ds-scope\"><li><h3>Custom Tile</h3><p>Floors, walls and shower surrounds planned around the room.</p></li></ul>",
+      "css": ".ds-scope { list-style: none; margin: 0; padding: 0; border-top: 1px solid rgba(21,24,27,0.28); background: #EEEBE6; color: #15181B; } .ds-scope li { position: relative; display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 12px 40px; align-items: baseline; padding: 30px 0 30px 28px; border-bottom: 1px solid rgba(21,24,27,0.28); } .ds-scope li::before { content: ''; position: absolute; left: 0; top: 38px; width: 9px; height: 9px; border: 1px solid #7A5636; transition: background-color .3s cubic-bezier(0.16,1,0.3,1); } .ds-scope li:hover::before { background: #C0976F; border-color: #C0976F; } .ds-scope h3 { margin: 0; font-family: Archivo, sans-serif; font-weight: 700; font-stretch: 106%; font-size: 1.24rem; } .ds-scope p { margin: 0; font-family: Figtree, sans-serif; color: #3B4045; }"
+    },
+    {
+      "name": "Process Node",
+      "kind": "custom",
+      "description": "Square numbered nodes on a 1px bronze rail; the first is filled.",
+      "html": "<ol class=\"ds-steps\"><li><span>1</span></li><li><span>2</span></li><li><span>3</span></li></ol>",
+      "css": ".ds-steps { display: flex; gap: 32px; list-style: none; margin: 0; padding: 0; background: #EEEBE6; } .ds-steps li { position: relative; flex: 1; } .ds-steps li:not(:last-child)::after { content: ''; position: absolute; left: 44px; right: -32px; top: 22px; height: 1px; background: #C0976F; } .ds-steps span { display: grid; place-items: center; width: 44px; height: 44px; background: #EEEBE6; border: 1px solid #7A5636; color: #7A5636; font-family: Archivo, sans-serif; font-weight: 700; font-stretch: 112%; font-variant-numeric: tabular-nums; } .ds-steps li:first-child span { background: #C0976F; border-color: #AE8660; color: #14110E; }"
+    },
+    {
+      "name": "Room Chooser",
+      "kind": "custom",
+      "refersTo": "room-chooser-tile",
+      "description": "Hero one-click start: three square tiles in one ink outline; a click preselects Project Type and focuses the next unanswered question.",
+      "html": "<div class=\"ds-ch\"><span class=\"ds-ch__label\">What are you remodeling?</span><div class=\"ds-ch__row\"><a class=\"ds-ch__opt\" href=\"#\"><svg class=\"ds-ch__icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"square\" stroke-linejoin=\"miter\" aria-hidden=\"true\"><path d=\"M3 21h18M5 21V11h14v10M5 15h14M9 7h6M12 7V3\"/></svg><span class=\"ds-ch__go\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"square\" stroke-linejoin=\"miter\" aria-hidden=\"true\"><path d=\"M4 12h16M13 5l7 7-7 7\"/></svg></span><span class=\"ds-ch__name\">Kitchen</span></a><a class=\"ds-ch__opt\" href=\"#\"><svg class=\"ds-ch__icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"square\" stroke-linejoin=\"miter\" aria-hidden=\"true\"><path d=\"M3 12h18v3a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5zM6 12V5a2 2 0 0 1 4 0\"/></svg><span class=\"ds-ch__go\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"square\" stroke-linejoin=\"miter\" aria-hidden=\"true\"><path d=\"M4 12h16M13 5l7 7-7 7\"/></svg></span><span class=\"ds-ch__name\">Bathroom</span></a><a class=\"ds-ch__opt\" href=\"#\"><svg class=\"ds-ch__icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"square\" stroke-linejoin=\"miter\" aria-hidden=\"true\"><path d=\"M3 21V10l9-6 9 6v11zM9 21v-6h6v6\"/></svg><span class=\"ds-ch__go\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"square\" stroke-linejoin=\"miter\" aria-hidden=\"true\"><path d=\"M4 12h16M13 5l7 7-7 7\"/></svg></span><span class=\"ds-ch__name\">Both</span></a></div></div>",
+      "css": ".ds-ch { max-width: 600px; color: #15181B; } .ds-ch__label { display: block; margin-bottom: 10px; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-stretch: 112%; font-size: 0.76rem; letter-spacing: 0.14em; text-transform: uppercase; } .ds-ch__row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid #15181B; background: #F9F8F6; } .ds-ch__opt { display: grid; grid-template-columns: minmax(0, 1fr) auto; row-gap: 16px; align-content: space-between; min-height: 96px; padding: 16px 18px; color: #15181B; text-decoration: none; border-left: 1px solid rgba(21,24,27,0.28); transition: background-color .3s cubic-bezier(0.16,1,0.3,1), color .3s cubic-bezier(0.16,1,0.3,1); } .ds-ch__opt:first-child { border-left: 0; } .ds-ch__icon { width: 1.6em; height: 1.6em; color: #7A5636; transition: color .3s; } .ds-ch__go { grid-row: 1; grid-column: 2; color: #7A5636; transition: color .3s, transform .35s cubic-bezier(0.16,1,0.3,1); } .ds-ch__name { grid-column: 1 / -1; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-stretch: 112%; font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; } .ds-ch__opt:hover { background: #15181B; color: #ECEAE6; } .ds-ch__opt:hover .ds-ch__icon, .ds-ch__opt:hover .ds-ch__go { color: #D3AD87; } .ds-ch__opt:hover .ds-ch__go { transform: translateX(3px); } .ds-ch__opt:active { background: #0F1113; } .ds-ch__opt:focus-visible { position: relative; z-index: 1; outline: 2px solid #15181B; outline-offset: 2px; }"
+    },
+    {
+      "name": "Select Field",
+      "kind": "input",
+      "refersTo": "select-field",
+      "description": "Compact dropdown alternative to option tiles; bronze chevron, Ink 3 placeholder.",
+      "html": "<div class=\"ds-sel\"><label for=\"ds-pt\">Project type</label><select id=\"ds-pt\" required><option value=\"\" disabled selected>Choose one</option><option>Kitchen Remodeling</option><option>Bathroom Remodeling</option></select></div>",
+      "css": ".ds-sel { font-family: Figtree, 'Helvetica Neue', Arial, sans-serif; color: #15181B; } .ds-sel label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.96rem; } .ds-sel select { width: 100%; min-height: 52px; padding: 13px 44px 13px 14px; background: #FFFFFF url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237A5636' stroke-width='1.8' stroke-linecap='square'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E\") no-repeat right 14px center / 18px 18px; color: #15181B; border: 1px solid rgba(21,24,27,0.28); border-radius: 2px; font: 400 1rem/1.4 Figtree, 'Helvetica Neue', Arial, sans-serif; -webkit-appearance: none; appearance: none; cursor: pointer; transition: border-color .2s, box-shadow .2s; } .ds-sel select:invalid { color: #5C6166; } .ds-sel select option { color: #15181B; } .ds-sel select:hover { border-color: #5C6166; } .ds-sel select:focus { outline: none; border-color: #15181B; box-shadow: 0 0 0 1px #15181B; }"
+    },
+    {
+      "name": "Text Action",
+      "kind": "custom",
+      "refersTo": "link-go",
+      "description": "Uppercase Archivo text action over a 1px bronze underline; per-service starts and secondary paths.",
+      "html": "<a class=\"ds-go\" href=\"#\">Discuss a Renovation <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"square\" stroke-linejoin=\"miter\" aria-hidden=\"true\"><path d=\"M4 12h16M13 5l7 7-7 7\"/></svg></a>",
+      "css": ".ds-go { display: inline-flex; align-items: center; gap: 10px; padding-bottom: 6px; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-stretch: 116%; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: #15181B; text-decoration: none; border-bottom: 1px solid #C0976F; transition: border-color .25s cubic-bezier(0.16,1,0.3,1); } .ds-go svg { color: #7A5636; transition: transform .35s cubic-bezier(0.16,1,0.3,1); } .ds-go:hover { border-color: #15181B; } .ds-go:hover svg { transform: translateX(3px); } .ds-go:focus-visible { outline: 2px solid #15181B; outline-offset: 3px; }"
+    },
+    {
+      "name": "Larger-Scope Strip",
+      "kind": "card",
+      "refersTo": "larger-scope-strip",
+      "description": "Text-only graphite strip with a 2px bronze top edge and Polished Bronze H3s.",
+      "html": "<div class=\"ds-more\"><p class=\"ds-more__t\">Planning something larger?</p><div class=\"ds-more__row\"><h3>Whole-Home Renovations</h3><p>Updated layouts, structural improvements and connected living spaces.</p></div></div>",
+      "css": ".ds-more { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: 24px 40px; padding: 40px; background: #15181B; color: #ECEAE6; border-top: 2px solid #C0976F; } .ds-more__t { margin: 0; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-weight: 800; font-stretch: 112%; font-size: 1.3rem; line-height: 1.1; text-transform: uppercase; max-width: 12ch; } .ds-more__row h3 { margin: 0; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-stretch: 106%; font-size: 1.2rem; color: #D3AD87; } .ds-more__row p { margin: 10px 0 0; font-family: Figtree, sans-serif; color: #B4B2AD; max-width: 46ch; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Brass Profile",
+    "overview": "LCG Boston is one brand expressed in two worlds. The main site (`assets/css/style.css`) is a dark graphite world. Service landing pages (`assets/css/lp.css`, shared by every service LP: bathroom, kitchen, and the combined kitchen and bathroom LP) are built like a finished shower: a pale, warm honed-stone ground, graphite bands, and a slim 1px bronze profile that frames each important plane. Both worlds share the same constants: the official LCG mark, bronze, graphite, the Archivo plus Figtree pair, square geometry, and plain, factual copy. This document records the shared constants and the service-landing-page world in full. The dark main-site world is not redocumented here beyond what it shares.\n\nThe landing world is calm and editorial rather than loud. Reading happens on stone in graphite ink; the header, the partner section, the estimate section and the footer drop into graphite to give the page structure. Bronze is used as metal, never as paint over large areas: a 1px inset profile on photographs, square markers, thin rules, the progress bar, and the one solid fill it is allowed, the primary action. Real project photography carries the proof, cropped tall and framed rather than darkened or overlaid with text.\n\nDensity is generous on desktop (sections of 72 to 136px) and compact but never cramped on mobile, where a fixed graphite action bar keeps Call and Free Estimate one tap away.",
+    "keyCharacteristics": [
+      "Light warm stone ground, graphite bands, bronze as a 1px brass profile.",
+      "Archivo expanded uppercase for headings and actions; Figtree for reading.",
+      "Square corners everywhere (2px on controls, 0 on panels and photos).",
+      "Flat: depth from tonal bands and hairline rules, not shadows.",
+      "Real photography framed by an inset brass line; no overlays, no stock.",
+      "One action per screen in bronze; calling is the quieter alternative."
+    ],
+    "rules": [
+      {
+        "name": "The Brass Profile Rule",
+        "body": "Bronze is a line before it is a fill. Photos, lists, form sections and the process rail get a 1px bronze profile; only the primary action is solid bronze.",
+        "section": "colors"
+      },
+      {
+        "name": "The Readable Metal Rule",
+        "body": "Bronze text or icons on stone use Bronze Text, never brand bronze. Brand bronze is for fills, lines, and icons on graphite.",
+        "section": "colors"
+      },
+      {
+        "name": "The Built Caps Rule",
+        "body": "Uppercase is reserved for expanded Archivo: headings, actions and functional labels. Reading copy is always Figtree in sentence case. The FAQ title is the one heading set in title case; it is an exception, not a second heading style.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Numbers Rule",
+        "body": "Phone numbers, ZIP inputs and process numbers use tabular figures.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Stone Rule",
+        "body": "No drop shadows on cards, panels, photos or buttons. To lift a surface, step its tone or rule it with a hairline.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** use the official logo files from `assets/img/brand/` as supplied (the bronze lockup on graphite), never redrawn or recolored.",
+      "**Do** keep every corner square: 2px on controls, 0 on panels, photos and joins.",
+      "**Do** frame real project photos with the 1px inset brass line instead of overlays or gradients.",
+      "**Do** use Bronze Text (`bronze-text`) for bronze icons and text on stone; reserve brand bronze for fills, lines and graphite contexts.",
+      "**Do** pair every primary action with the call link as the quieter alternative.",
+      "**Do** write all shipped copy in American English without em dashes.",
+      "**Do** keep focus visible: a 2px ink outline on light, Polished Bronze inside graphite regions.",
+      "**Do** honor reduced motion: the brass-frame draw and photo settle are skipped, transitions collapse."
+    ],
+    "donts": [
+      "**Don't** fill large areas with bronze; the primary action is its only solid surface.",
+      "**Don't** add drop shadows to cards, panels, photos or buttons; step the tone or add a hairline.",
+      "**Don't** set reading copy in uppercase or in Archivo; Figtree carries all running text.",
+      "**Don't** use rounded corners or pill shapes on any control.",
+      "**Don't** use glyph or emoji icons; icons are inline SVG strokes with square caps.",
+      "**Don't** present several photos of the same room as separate projects in the gallery."
+    ]
+  }
+}

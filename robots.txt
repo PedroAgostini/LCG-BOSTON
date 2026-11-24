@@ -1,6 +1,6 @@
-# TEST ONLY (lcg.escolats.com.br): keep this environment out of search engines.
-# Production: replace with
-#   User-agent: *
-#   Allow: /
+# LCG Boston: https://lcgbostonllc.com
+# The test host (lcg.escolats.com.br) serves robots-staging.txt instead (see .htaccess).
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://lcgbostonllc.com/sitemap.xml

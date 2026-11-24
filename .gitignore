@@ -17,3 +17,11 @@ desktop.ini
 .idea/
 node_modules/
 *.log
+
+# Production repo (LCG-PROD), built from this project
+prod-repo/
+
+# Impeccable: review screenshots and local caches (regenerable)
+.impeccable/review/
+.impeccable/hook.cache.json
+.impeccable/questions/

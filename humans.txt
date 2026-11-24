@@ -1,0 +1,20 @@
+/* TEAM */
+Client: LCG Boston LLC
+Location: Greater Boston, Massachusetts, USA
+Contact: info@lcgbostonllc.com
+
+Design & development: Eu Sou TS
+Site: https://eusouts.com.br/
+
+/* SITE */
+Project: LCG Boston
+URL: https://lcgbostonllc.com/
+Environment: Production
+Language: English (US)
+Last update: 2026-10-26
+Standards: HTML5, CSS3, JavaScript ES modules (no frameworks, no build step)
+3D and motion: Three.js, GSAP + ScrollTrigger, Lenis
+Typography: Archivo and Figtree via Google Fonts
+Icons: Phosphor Icons (MIT)
+Photography: LCG Boston project photos; three service images are illustrative concepts
+Brand assets: LCG Boston LLC

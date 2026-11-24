@@ -1,0 +1,3 @@
+# Test host only (lcg.escolats.com.br): keep this copy of the site out of search engines.
+User-agent: *
+Disallow: /

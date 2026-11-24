@@ -393,7 +393,32 @@ $$('[data-faq] details').forEach((d) => {
   const back = $('[data-back]', f), next = $('[data-next]', f), submit = $('.form__submit', f);
   const phone = $('#f-phone'), zip = $('#f-zip');
   const last = steps.length - 1;
+  const guard = window.LCGGuard?.watch(f); // assets/js/antispam.js
+  // The endpoint lives in data-endpoint (no form action) and the submit button ships disabled,
+  // so nothing can post to Web3Forms without this validation running first.
+  submit.disabled = false;
   let cur = 0;
+
+  // Copy of the lead for the agency's lead platform. Best effort: it never blocks or fails the visitor's request.
+  const sendLead = (data) => {
+    const url = f.dataset.leadWebhook;
+    if (!url) return;
+    const lead = {
+      form_id: f.dataset.formId,
+      source: location.hostname,
+      page: location.href.split('#')[0],
+      submitted_at: new Date().toISOString(),
+      service: data.service || '',
+      zip: data.zip || '',
+      timeline: data.timeline || '',
+      details: data.details || '',
+      name: data.name,
+      phone: data.phone,
+      email: data.email,
+      contact: data.contact || '',
+    };
+    fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(lead), keepalive: true }).catch(() => {});
+  };
 
   phone.addEventListener('input', () => {
     const d = phone.value.replace(/\D/g, '').replace(/^1/, '').slice(0, 10);
@@ -464,19 +489,44 @@ $$('[data-faq] details').forEach((d) => {
     for (let i = 0; i <= last; i++) {
       if (!validStep(i)) { if (i !== cur) { go(i, false); validStep(i); } return; }
     }
-    if (f.elements.company.value) return; // honeypot
+    const data = Object.fromEntries(new FormData(f));
+    // without antispam.js, fall back to the plain honeypot
+    const verdict = guard ? guard.check(data) : (data.company ? { trap: true } : {});
+    const showThanks = () => {
+      f.hidden = true;
+      ok.hidden = false;
+      ok.focus();
+      if (hasGsap && !reduce) gsap.from(ok, { y: 24, opacity: 0, duration: 0.8, ease: 'expo.out' });
+    };
+    if (verdict.trap) { showThanks(); return; } // bot: thank it, send nothing
+    if (verdict.message) { status.textContent = verdict.message; return; }
 
     const lbl = $('.form__submit-lbl', submit);
     submit.classList.add('is-loading');
     lbl.textContent = 'Sending';
     try {
-      // WordPress: replace with the form plugin endpoint (or let the plugin handle submit)
-      await new Promise((r) => setTimeout(r, 900));
-      f.hidden = true;
-      ok.hidden = false;
-      ok.focus();
-      if (hasGsap && !reduce) gsap.from(ok, { y: 24, opacity: 0, duration: 0.8, ease: 'expo.out' });
-      window.dataLayer?.push({ event: 'generate_lead', service: value('service') });
+      // Web3Forms is the delivery of record (email to the business)
+      const res = await fetch(f.dataset.endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const reply = await res.json();
+      if (!res.ok || !reply.success) throw new Error(reply.message || 'Request failed');
+      guard?.sent();
+      sendLead(data);
+      showThanks();
+      // Conversion for GTM, only after Web3Forms confirms the send.
+      // inputs = user-provided data for Ads enhanced conversions; in GTM, never map it into GA4 event parameters.
+      const digits = (data.phone || '').replace(/\D/g, '').replace(/^1(?=\d{10}$)/, '');
+      (window.dataLayer = window.dataLayer || []).push({
+        event: 'generate_lead',
+        service: value('service'),
+        inputs: {
+          email: (data.email || '').trim().toLowerCase(),
+          phone: digits.length === 10 ? '+1' + digits : '', // E.164, US numbers
+        },
+      });
     } catch {
       status.textContent = 'Something went wrong. Please call us at (781) 732-1899.';
     } finally {

@@ -1,0 +1,161 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "broken-image",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-26T17:19:52.960Z",
+        "reason": "Claude: svc-modal__img is a runtime slot; main.js:283 sets its src when the service popup opens (pre-existing)"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "privacy-policy.html"
+        ],
+        "createdAt": "2026-10-26T17:29:30.897Z",
+        "reason": "Claude: only hits are .legal-hero (64-120px padding + .wrap gutter) and .footer__base (26px padding under its border); detector misreads them as flush"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "terms-of-use.html"
+        ],
+        "createdAt": "2026-10-26T17:29:31.143Z",
+        "reason": "Claude: only hits are .legal-hero (64-120px padding + .wrap gutter) and .footer__base (26px padding under its border); detector misreads them as flush"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "privacy-policy.html"
+        ],
+        "createdAt": "2026-10-26T17:45:53.959Z",
+        "reason": "Claude: hits are .creds__track/.marquee__track/.pg-track rules in the shared style.css; those elements exist only on index.html, not on this page"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "terms-of-use.html"
+        ],
+        "createdAt": "2026-10-26T17:45:54.125Z",
+        "reason": "Claude: hits are .creds__track/.marquee__track/.pg-track rules in the shared style.css; those elements exist only on index.html, not on this page"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "redirect.html"
+        ],
+        "createdAt": "2026-10-26T18:03:55.431Z",
+        "reason": "Claude: hits are .creds__track/.marquee__track/.pg-track rules in the shared style.css; those elements exist only on index.html, not on the business card"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "bathroom-remodeling/index.html"
+        ],
+        "createdAt": "2026-11-16T15:41:17.203Z",
+        "reason": "Claude: sections get padding from .sec (72-136px) and .wrap gutters; faq__list rows have 24px summary padding; detector misreads them as flush (same pattern as the legal pages)"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "bathroom-remodeling/index.html"
+        ],
+        "createdAt": "2026-11-16T15:41:17.391Z",
+        "reason": "user confirmed: chose a light warm off-white/stone base for this LP (Q1 b in the grilling round), matching the marble photography"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "bathroom-remodeling/index.html"
+        ],
+        "createdAt": "2026-11-16T17:07:48.869Z",
+        "reason": "User asked for the looping two-row gallery to match the main site's projects gallery; pauses on hover/focus, static under reduced motion, every photo reachable in the viewer."
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "kitchen-remodeling/index.html"
+        ],
+        "createdAt": "2026-11-16T17:58:12.234Z",
+        "reason": "Same template as bathroom LP: sections get padding from .sec and .wrap gutters, scope cells and faq rows have inner padding; detector misreads them as flush"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "kitchen-remodeling/index.html"
+        ],
+        "createdAt": "2026-11-16T17:58:12.284Z",
+        "reason": "User chose the light stone base for the service LPs; kitchen LP reuses the bathroom LP structure by request"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "kitchen-remodeling/index.html"
+        ],
+        "createdAt": "2026-11-16T17:58:12.333Z",
+        "reason": "User asked for the looping two-row gallery (same as bathroom LP and main site); pauses on hover/focus, static under reduced motion, every photo reachable in the viewer"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "kitchen-bathroom-remodeling/index.html"
+        ],
+        "createdAt": "2026-11-24T11:49:20.227Z",
+        "reason": "Claude: same template as kitchen/bathroom LPs; sections get padding from .sec and .wrap gutters, faq rows have 24px summary padding; detector misreads them as flush"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "kitchen-bathroom-remodeling/index.html"
+        ],
+        "createdAt": "2026-11-24T11:49:20.806Z",
+        "reason": "user confirmed: Q2 of this session kept the LCG LP stone world (DESIGN.md) for this page, same base as the sister service LPs"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "kitchen-bathroom-remodeling/index.html"
+        ],
+        "createdAt": "2026-11-24T11:49:21.020Z",
+        "reason": "Claude: hit is .pg-track in shared lp.css; this page has no marquee (static room galleries)"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "kitchen-bathroom-remodeling/thank-you.html"
+        ],
+        "createdAt": "2026-11-24T11:56:20.262Z",
+        "reason": "user confirmed: Q2 of this session kept the LCG LP stone world; the thank-you page shares the LP base"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "kitchen-bathroom-remodeling/thank-you.html"
+        ],
+        "createdAt": "2026-11-24T11:56:20.478Z",
+        "reason": "Claude: hit is .pg-track in shared lp.css; the thank-you page has no gallery or marquee"
+      }
+    ]
+  }
+}

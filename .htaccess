@@ -1,9 +1,14 @@
 # =========================================================
-#  LCG Boston, TEST environment: https://lcg.escolats.com.br
-#  Static one page (index.html + assets/). Apache 2.4.
+#  LCG Boston: https://lcgbostonllc.com
+#  Static site: index.html, privacy-policy.html, terms-of-use.html,
+#  404.html, clear-cache.html and assets/. Apache 2.4 / LiteSpeed.
 #
-#  Going to production? Remove the "TEST ONLY" header below
-#  and replace robots.txt (also marked TEST ONLY).
+#  Pages have no ".html" in the address:
+#    /privacy-policy  /terms-of-use  /clear-cache  /redirect (business card)
+#  Any ".html" address is sent (301) to the clean one.
+#
+#  The same file works on the test host (lcg.escolats.com.br):
+#  there it blocks indexing and serves robots-staging.txt.
 # =========================================================
 
 Options -Indexes -MultiViews
@@ -15,44 +20,78 @@ AddDefaultCharset utf-8
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # Force HTTPS (also works behind proxies / Cloudflare)
+  # Force HTTPS (also works behind proxies / CDN); /.well-known stays open for SSL validation
   RewriteCond %{HTTPS} !=on
   RewriteCond %{HTTP:X-Forwarded-Proto} !=https
-  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  RewriteCond %{REQUEST_URI} !^/\.well-known/
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
-  # Drop "www." if anyone types it
-  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-  RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+  # One address: www.lcgbostonllc.com -> lcgbostonllc.com
+  RewriteCond %{REQUEST_URI} !^/\.well-known/
+  RewriteCond %{HTTP_HOST} ^www\.lcgbostonllc\.com$ [NC]
+  RewriteRule ^ https://lcgbostonllc.com%{REQUEST_URI} [R=301,L]
 
-  # /index.html -> / (one URL for the home page)
-  RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
-  RewriteRule ^index\.html$ / [L,R=301]
+  # Test host gets a robots.txt that blocks everything
+  RewriteCond %{HTTP_HOST} ^lcg\.escolats\.com\.br$ [NC]
+  RewriteRule ^robots\.txt$ robots-staging.txt [L]
 
-  # Block hidden files (.git, .env ...) but keep /.well-known for SSL validation
-  RewriteRule (^|/)\.(?!well-known/) - [F]
+  # Hidden files and folders (.git, .env, .impeccable ...) return 404, except /.well-known
+  RewriteRule (^|/)\.(?!well-known(/|$)) - [R=404,L]
 
-  # Block working / source files that should never be public
-  RewriteRule \.(md|tsv|cjs|json|log|bak|sql|zip|psd|ai)$ - [F,NC]
+  # Working files and folders that should never be public
+  RewriteRule \.(md|tsv|cjs|json|log|bak|sql|zip|psd|ai|sh|ps1)$ - [R=404,NC,L]
+  RewriteRule ^(photo-curation|deploy|docs|node_modules)(/|$) - [R=404,NC,L]
+
+  # ----- Clean URLs (no .html) -----
+  # /index.html and /index -> /  (client requests only, never internal rewrites)
+  RewriteCond %{THE_REQUEST} \s/+index(\.html)?[\s?] [NC]
+  RewriteRule ^ / [R=301,L]
+  # /folder/index.html and /folder/index -> /folder/  (service landing pages)
+  RewriteCond %{THE_REQUEST} \s/+([^\s?]+/)index(\.html)?[\s?] [NC]
+  RewriteRule ^ /%1 [R=301,L,NE]
+
+  # /page.html -> /page
+  RewriteCond %{THE_REQUEST} \s/+([^\s?]+?)\.html[\s?] [NC]
+  RewriteRule ^ /%1 [R=301,L,NE]
+
+  # /page/ -> /page
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+  # The 404 page is not a page of its own: /404 answers with a real 404
+  RewriteCond %{ENV:REDIRECT_STATUS} ^$
+  RewriteRule ^404$ - [R=404,L]
+
+  # /page -> page.html (internal, the address stays clean)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^([^.]+)$ $1.html [L]
 </IfModule>
 
-# ---------- MIME types ----------
+# ---------- File types ----------
 <IfModule mod_mime.c>
   AddType text/javascript .js .mjs
   AddType text/css .css
   AddType image/webp .webp
   AddType image/svg+xml .svg
   AddType image/x-icon .ico
-  AddCharset utf-8 .html .css .js .txt
+  AddType application/manifest+json .webmanifest
+  AddType application/xml .xml
+  AddType text/plain .txt
+  AddType text/vcard .vcf
+  AddCharset utf-8 .html .css .js .txt .xml .webmanifest .vcf
 </IfModule>
 
 # ---------- Compression ----------
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript application/json image/svg+xml
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript application/json application/manifest+json application/xml text/xml image/svg+xml image/x-icon
 </IfModule>
 
 # ---------- Caching ----------
-# HTML, CSS and JS are revalidated on every visit (cheap 304s), so test
-# updates show up right away. Images and fonts are cached for 30 days.
+# Pages, CSS, JS and text files are revalidated on every visit (cheap 304s), so updates
+# show up right away. Pages also carry a ?v= on CSS/JS: bump it when those files change.
+# Images, icons and fonts are cached for 30 days.
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresDefault "access plus 0 seconds"
@@ -65,21 +104,39 @@ AddDefaultCharset utf-8
 </IfModule>
 
 <IfModule mod_headers.c>
-  <FilesMatch "\.(html|css|js|mjs)$">
+  <FilesMatch "\.(html|css|js|mjs|txt|xml|webmanifest|vcf)$">
     Header set Cache-Control "no-cache"
   </FilesMatch>
+  # Business card contact file: download as "LCG Boston.vcf"
+  <Files "lcg-boston.vcf">
+    Header set Content-Disposition "attachment; filename=\"LCG Boston.vcf\""
+  </Files>
   <FilesMatch "\.(webp|jpe?g|png|svg|ico|woff2)$">
     Header set Cache-Control "public, max-age=2592000"
   </FilesMatch>
+
+  # ---------- /clear-cache: the browser drops this site's cached files (cookies and saved data are kept) ----------
+  <Files "clear-cache.html">
+    Header always set Clear-Site-Data "\"cache\""
+    Header always set Cache-Control "no-store"
+    Header always set X-Robots-Tag "noindex, nofollow"
+  </Files>
 
   # ---------- Security ----------
   Header always set X-Content-Type-Options "nosniff"
   Header always set X-Frame-Options "SAMEORIGIN"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
-  # Short HSTS on the test domain; raise to max-age=31536000 in production
-  Header always set Strict-Transport-Security "max-age=86400" env=HTTPS
+  Header unset X-Powered-By
+</IfModule>
+ServerSignature Off
 
-  # ---------- TEST ONLY: keep this environment out of Google ----------
-  Header always set X-Robots-Tag "noindex, nofollow, noarchive"
+# ---------- Per host: HSTS on the real domain, noindex on the test host ----------
+SetEnvIfNoCase Host ^lcgbostonllc\.com$ LCG_PROD
+SetEnvIfNoCase Host ^lcg\.escolats\.com\.br$ LCG_STAGING
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000" env=LCG_PROD
+  Header always set Strict-Transport-Security "max-age=31536000" env=REDIRECT_LCG_PROD
+  Header always set X-Robots-Tag "noindex, nofollow, noarchive" env=LCG_STAGING
+  Header always set X-Robots-Tag "noindex, nofollow, noarchive" env=REDIRECT_LCG_STAGING
 </IfModule>

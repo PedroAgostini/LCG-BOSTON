@@ -1,0 +1,18 @@
+{
+  "id": "/",
+  "name": "LCG Boston",
+  "short_name": "LCG Boston",
+  "description": "Licensed and insured home remodeling and additions in Greater Boston and Eastern Massachusetts.",
+  "lang": "en-US",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "background_color": "#0F1113",
+  "theme_color": "#111315",
+  "icons": [
+    { "src": "/assets/img/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/img/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/img/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
